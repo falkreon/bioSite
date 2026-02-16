@@ -1,1 +1,132 @@
- 
+html {
+    font-family: Helvetica, sans-serif;
+    background: #fff;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    background-color: #97b1d2;
+
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+
+}
+
+nav {
+    display: block;
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 1.2em;
+    border: none;
+    border-bottom: 2px solid #000;
+
+    background-color: #7a8ea9;
+}
+
+nav a {
+    display: inline-block;
+    box-sizing: border-box;
+
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-left: 2em;
+    margin-right: 2em;
+
+    min-width: 15%;
+
+    border-bottom: 2px solid rgba(0, 0, 0, 0);
+
+    color: white;
+}
+
+nav a:hover {
+    border-bottom: 2px solid #fff;
+}
+
+article {
+    display: block;
+    box-sizing: border-box;
+    max-width: 84em;
+    min-height: 80%;
+    margin-top: 2em;
+    margin-left: auto;
+    margin-bottom: 0;
+    margin-right: auto;
+    padding-top: 2em;
+    padding-left: 6em;
+    padding-right: 6em;
+    padding-bottom: 2.5em;
+
+    background-color: #fff;
+}
+
+article img {
+    margin: 2em;
+}
+
+article img:nth-child(odd) {
+    float: left;
+}
+
+article img:nth-child(even) {
+    float: right;
+}
+
+article p:first-of-type:first-letter {
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+article p {
+    text-indent: 4em;
+}
+
+#card-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.card {
+    display: block;
+    width: 25em;
+    min-height: 10em;
+    border: 2px solid #777;
+    border-radius: 1em 1em;
+    padding: 1em;
+    margin: 1em;
+
+    background-color: white;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.wide-card {
+    display: block;
+    min-height: 5em;
+    max-width: 60em;
+    border: 2px solid #777;
+    border-radius: 1em 1em;
+    padding: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+    background-color: white;
+}
+
+.test-tall-1 {
+    min-height: 30em;
+}
+
+.test-tall-2 {
+    min-height: 40em;
+}
