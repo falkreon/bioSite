@@ -3,29 +3,33 @@
   <head>
 <!--
 CSD340: Web Development
-Module 6.3 Assignment: bioSite Development
+Module 7.2 Assignment: bioSite Development and GitHub Pages Deployment
 Isaac Ellingson
-2/15/2026
+2/22/2026
 =====================
 
-This page is obviously not complete. The challenge here is how to make the
-relationship lines, and how to make the page reactive. I'll keep working on this.
-
-For now I'm getting the page structure here, making sure it's navigable, and setting
-up the *general* css so that pages are clean and coherent.
+Generally speaking most websites don't want footers. However, I've added them
+since that's the requirement.
 -->
     <meta charset="utf-8">
-    <title>title</title>
+    <title>Roger Ellingson</title>
     <link rel="stylesheet" href="site.css">
     <link rel="stylesheet" href="splash.css">
   </head>
   <body>
-    <div class="splash-entity"><h2><a href="about.html">About</a></h2></div>
-    <div class="splash-entity"><h2><a href="hobbies.html">Hobbies</a></h2></div>
-    <div class="splash-entity"><h2><a href="links.html">Links</a></h2></div>
-    <div class="splash-portrait">
-      <img src="images/portrait.png">
-      Roger Ellingson
+    <div class="center-both">
+      <div class="erd">
+        <div class="splash-entity"><h2><a href="about.html">About</a></h2></div>
+        <div class="splash-entity"><h2><a href="hobbies.html">Hobbies</a></h2></div>
+        <div class="splash-entity"><h2><a href="links.html">Links</a></h2></div>
+        <div class="splash-relationship"></div>
+        <div class="splash-relationship"></div>
+        <div class="splash-relationship"></div>
+        <figure class="splash-portrait">
+          <img src="images/portrait.png">
+          <figcaption>Roger Ellingson</figcaption>
+        </figure>
+      </div>
     </div>
   </body>
 </html>

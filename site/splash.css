@@ -1,52 +1,152 @@
+/*
+So. I had an absurd plan, and weirdly it's becoming a reality. We're going to have a mock ERD as our landing page, with diagonal relationship lines and everything. But, I want this to be responsive - I want it to shrink and grow somehow in a reasonable way without going off the bottom of the page, so it's centered and as large as possible without stretching or squishing the aspect ratio.
+
+So to start off, I need to decide on an aspect ratio. I'm carving out a 4:3 "window" that we'll lay out the ERD inside with relative (percent) positions and sizes.
+
+Then, unfortunately, to center the ERD on both axes, we need to use two nested containers. We'll reuse the body for the first one.
+*/
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+}
+
+/* This element will be made as wide as the screen by flex, but will center itself vertically. */
+.center-both {
+    box-sizing: border-box;
+    flex-grow: 1;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+This element centers horizontally with margin: 0 auto
+*/
+.erd {
+    box-sizing: border-box;
+    display: block;
+    position: relative;
+    max-width: 100%;
+    max-height: 99vh;
+    aspect-ratio: 1.333333; /* 4:3 */
+    margin: 0 auto;
+    padding: 0;
+}
+
+/*
+With the ERD sized and centered, past this point we're only allowed percentage units for positioning and sizing.
+*/
+
 .splash-entity {
     display: block;
     border: 2px solid #777;
     border-radius: 16px 16px;
-    margin: 0.5em;
-    padding: 1em;
-    min-width: 30em;
-    min-height: 8em;
+    margin: 0;
+    padding: 0;
+    width: 30%;
+    height: 15%;
+    text-align: center;
 
     background-color: white;
+    box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.25);
 }
 
+/* About */
 .splash-entity:nth-child(1) {
     position: absolute;
-    left: 40%;
-    top: 1em;
+    left: 45%;
+    top: 5%;
 }
 
+/* Hobbies */
 .splash-entity:nth-child(2) {
     position: absolute;
     left: 20%;
-    top: 14em;
+    top: 30%;
 }
 
+/* Links */
 .splash-entity:nth-child(3) {
     position: absolute;
     left: 10%;
-    top: 27em;
+    top: 60%;
+}
+
+.splash-relationship {
+    position: absolute;
+    width: 0;
+    height: 0;
+    z-index: -999;
+    transform-origin: top left;
+    border: none;
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+}
+
+/* About relationship line */
+.splash-relationship:nth-child(4) {
+    left: 60%;
+    top: 20%;
+
+    height: 41%;
+    border-left: 2px solid #444;
+    transform: skew(31deg, 0deg);
+}
+
+/* Hobbies relationship line */
+.splash-relationship:nth-child(5) {
+    left: 50%;
+    top: 37%;
+
+    width: 30%;
+    border-top: 2px solid #444;
+    transform: skew(0deg, 42deg);
+}
+
+/* Links relationship line */
+.splash-relationship:nth-child(6) {
+    left: 40%;
+    top: 67%;
+    border-top: 2px solid #444;
+    width: 40%;
+    transform: skew(0deg, 5deg);
 }
 
 .splash-portrait {
+    box-sizing: border-box;
+    border: 0;
     position: absolute;
-    left: 60%;
-    top: 12em;
+    left: 70%;
+    top: 60%;
 
     display: block;
-    border: none;
     text-align: center;
-    aspect-ratio: 1.0;
-    max-height: 450px;
+    width: 20%;
+    overflow: hidden;
     font-size: 2em;
+    margin: 0;
+    padding: 0;
 }
 
 .splash-portrait img {
     display: block;
-    width: 8em;
+    width: 90%;
+    aspect-ratio: 1.0;
     border: 2px solid #000;
     border-radius: 50% 50%;
     overflow: hidden;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 4vmin;
+}
+
+figcaption {
+    font-size: 3vmin;
 }

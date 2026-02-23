@@ -12,8 +12,14 @@ html {
 body {
     margin: 0;
     padding: 0;
-    height: 100%;
+    padding-bottom: 2em;
+}
 
+header {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: none;
 }
 
 nav {
@@ -52,18 +58,22 @@ nav a:hover {
 article {
     display: block;
     box-sizing: border-box;
-    max-width: 84em;
+    max-width: 84rem;
     min-height: 80%;
-    margin-top: 2em;
+    margin-top: 2rem;
     margin-left: auto;
-    margin-bottom: 0;
+    margin-bottom: 3rem;
     margin-right: auto;
-    padding-top: 2em;
-    padding-left: 6em;
-    padding-right: 6em;
-    padding-bottom: 2.5em;
+    padding-top: 2rem;
+    padding-left: 6rem;
+    padding-right: 6rem;
+    padding-bottom: 3.5rem;
 
     background-color: #fff;
+
+    font-size: 1.2rem;
+
+    box-shadow: 0px 4px 4px 4px rgba(0,0,0,0.20);
 }
 
 article img {
@@ -87,25 +97,69 @@ article p {
     text-indent: 4em;
 }
 
+/*
+    This is really not ideal. Grid looked *promising* with grid-auto-flow: column dense, but without a fixed height or a fixed number of rows, what I get is either one row where we keep stacking up columns to the right (effectively making a row wider than the screen), or a single nicely-packed column.
+
+    So sadly I've gone back to flex, where I can lay out cards in rows, but unfortunately have gaps underneath when some cards are taller than others.
+*/
+
 #card-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    align-items: start;
+    justify-content: space-between;
+    gap: 30px;
+    margin: 30px;
+    padding-bottom: 3em;
 }
 
 .card {
+    box-sizing: border-box;
     display: block;
-    width: 25em;
-    min-height: 10em;
+    width: 600px;
     border: 2px solid #777;
     border-radius: 1em 1em;
-    padding: 1em;
-    margin: 1em;
+    padding: 0;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
 
     background-color: white;
-    flex-grow: 0;
-    flex-shrink: 0;
+
+    box-shadow: 1px 3px 4px 0px rgba(0,0,0,0.20);
+    overflow: hidden;
+}
+
+.card > h2 {
+    margin: 0.25em;
+    text-align: center;
+    padding: 0;
+}
+
+.card figure {
+    max-width: 100%;
+    margin: 0;
+    margin-bottom: 2em;
+    padding: 0;
+}
+
+.card figure > img {
+    width: 100%;
+    aspect-ratio: 0.75;
+    background-color: #2f4c71;
+    object-fit: contain;
+    margin: 0;
+    margin-bottom: 0.25em;
+
+    box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.20);
+}
+
+.card figcaption {
+    font-size: 0.9rem;
+    font-style: italic;
+    padding: 0.5rem;
 }
 
 .wide-card {
@@ -121,6 +175,8 @@ article p {
     margin-bottom: 1em;
 
     background-color: white;
+
+    box-shadow: 1px 3px 4px 0px rgba(0,0,0,0.20);
 }
 
 .test-tall-1 {
@@ -129,4 +185,20 @@ article p {
 
 .test-tall-2 {
     min-height: 40em;
+}
+
+footer {
+    position: fixed;
+    bottom:0;
+    width: 100%;
+    height: 1.8rem;
+    margin: 0;
+    margin-top: 1em;
+    padding: 4px;
+    border: none;
+    border-top: 2px solid #777;
+    background: white;
+    box-shadow: 0px -3px 4px 0px rgba(0,0,0,0.20);
+    font-style: italic;
+    font-size: 0.9em;
 }
