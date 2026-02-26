@@ -124,8 +124,9 @@ article p {
     flex-wrap: wrap;
     align-items: start;
     justify-content: space-between;
+    width: 100%;
     gap: 30px;
-    margin: 30px;
+    /*margin: 30px;*/
     padding-bottom: 3em;
 }
 
@@ -217,3 +218,94 @@ footer {
     font-style: italic;
     font-size: 0.9em;
 }
+
+
+/* Article breakpoint - under about 1100px we wind up losing a good article-style page layout.
+ * Let's get rid of some of the margins, gutters, and padding to retain the page for as long as
+ * we can.
+*/
+
+@media screen and (max-width: 1200px) {
+    article {
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 1em;
+    }
+
+    article figure {
+        margin: 1em;
+        margin-top: 10px;
+    }
+}
+
+/* Mobile Article breakpoint - at around 900px we've got about equal space alloted to the floated
+ * image as we do to the text. Any smaller and the image really starts "taking over", reducing
+ * the readability of the text. So instead, stack the figure, but limit its size to around 700px
+ * so that it doesn't push *all* the textual content off the screen.
+ */
+@media screen and (max-width: 900px) {
+    article figure {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        float: none !important;
+        width: 100%;
+        max-width: 700px;
+        margin: 0;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    footer {
+        height: initial;
+    }
+}
+
+/* Cards breakpoint: because we demand 30px between cards, 600+600+30 = 1230px is when we stop
+ * being able to lay cards out next to each other.
+ *
+ * Right now I'm not doing anything with this information but I may tweak how cards operate in
+ * the future for this
+ */
+@media (900px < width < 1230px) {
+    .card {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        border-radius: 0;
+    }
+
+    .card figure {
+        display: inline-block;
+        margin: 0;
+        width: 600px;
+    }
+
+    .card figcaption {
+        font-size: 18pt;
+    }
+}
+
+/* Mobile Cards breakpoint -
+ */
+
+@media (width <= 600px) {
+    .card {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .card figure {
+        margin-bottom: 12px;
+    }
+
+    .card figcaption {
+        font-size: 12pt;
+        margin-bottom: 0px;
+    }
+}
+
+
