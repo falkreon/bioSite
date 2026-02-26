@@ -58,21 +58,21 @@ With the ERD sized and centered, past this point we're only allowed percentage u
 }
 
 /* About */
-.splash-entity:nth-child(1) {
+.splash-entity.about-ent {
     position: absolute;
     left: 45%;
     top: 5%;
 }
 
 /* Hobbies */
-.splash-entity:nth-child(2) {
+.splash-entity.hobbies-ent {
     position: absolute;
     left: 20%;
     top: 30%;
 }
 
 /* Links */
-.splash-entity:nth-child(3) {
+.splash-entity.links-ent {
     position: absolute;
     left: 10%;
     top: 60%;
@@ -85,36 +85,71 @@ With the ERD sized and centered, past this point we're only allowed percentage u
     z-index: -999;
     transform-origin: top left;
     border: none;
-    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
 }
 
 /* About relationship line */
-.splash-relationship:nth-child(4) {
-    left: 60%;
-    top: 20%;
+.splash-relationship.about-rel {
+    left: 60.5%;
+    top: 24%;
 
     height: 41%;
-    border-left: 2px solid #444;
+    border-left: 3px solid #444;
     transform: skew(31deg, 0deg);
 }
 
 /* Hobbies relationship line */
-.splash-relationship:nth-child(5) {
-    left: 50%;
-    top: 37%;
+.splash-relationship.hobbies-rel {
+    left: 53%;
+    top: 39%;
 
     width: 30%;
-    border-top: 2px solid #444;
+    border-top: 3px solid #444;
     transform: skew(0deg, 42deg);
 }
 
 /* Links relationship line */
-.splash-relationship:nth-child(6) {
-    left: 40%;
+.splash-relationship.links-rel {
+    left: 43%;
     top: 67%;
-    border-top: 2px solid #444;
+    border-top: 3px solid #444;
     width: 40%;
     transform: skew(0deg, 5deg);
+}
+
+.splash-symbol {
+    position: absolute;
+    box-sizing: border-box;
+    z-index: -999;
+}
+
+.splash-symbol.about-sym {
+    left: 59%;
+    top: 20%;
+    width: 3%;
+    height: 4%;
+    background-image: url("images/erd_one_up.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.splash-symbol.hobbies-sym {
+    left: 50%;
+    top: 37%;
+    width: 3%;
+    height: 4%;
+    background-image: url("images/erd_many_left.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.splash-symbol.links-sym {
+    left: 40%;
+    top: 65%;
+    width: 3%;
+    height: 4%;
+    background-image: url("images/erd_many_left.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 .splash-portrait {
@@ -149,4 +184,22 @@ h2 {
 
 figcaption {
     font-size: 3vmin;
+}
+
+/*
+ * This tweak is barely visible after the fact, but at about this point without the query the lines start looking
+ * very fat and don't match the ERD symbol images.
+ */
+@media(width < 700px) {
+    .splash-relationship.about-rel {
+        border-left: 2px solid #444;
+    }
+
+    .splash-relationship.hobbies-rel {
+        border-top: 2px solid #444;
+    }
+
+    .splash-relationship.links-rel {
+        border-top: 2px solid #444;
+    }
 }

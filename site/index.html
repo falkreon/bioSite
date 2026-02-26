@@ -3,22 +3,20 @@
   <head>
 <!--
 CSD340: Web Development
-Module 7.2 Assignment: bioSite Development and GitHub Pages Deployment
+Module 9.2 Assignment: bioSite Peer Review
 Isaac Ellingson
-2/22/2026
+2/26/2026
 =====================
 
-Header and footer added, even though "header" is redundant around nav, and a biography doesn't really want a footer element.
+This week I've had a chance to peek at the site on mobile and I *did not like what I see*. While I initially
+designed it with flex so everything would be reactive *in theory*, in practice it was a mess. So I rewired it.
+I added a viewport meta to prevent the browser from shrinking the page in extreme circumstances, and instead
+ask it to let my layout do the work. And then I identified a few places where the layout was suboptimal and
+added breakpoints for those specific elements.
 
-Upgraded all images to figures. Note that there will be no alt text in captioned figures since screen readers would read out both (see https://stackoverflow.com/a/58468470 ).
+I also finished the splash page finally. The diagonal lines on this page are a little magic - check for
+the skew transform in the css! Not sure how the crow's feet work on all screens. Please let me know!
 
-Finally licked the ERD landing page issue - I realized I need a fixed aspect ratio, and then I realized I can use transform: skew() instead of rotate() to make it easier to eyeball the needed lengths along just one axis, and then tweak the skew angle, that cut the number of unknowns I had to fiddle with in half. I'd love something a little more semantic like a background SVG, but this is what we have in our toolkit *right now*. The only thing remaining is to add the crows-feet, which I think will be images in this case. I will swap the 1:many on About in the original diagram with a 1:1 just for correctness sake!
-
-The card layout in Hobbies is really disappointing to me, but once again I think I've run up against the limits of CSS.
-
-I will continue to tweak the nav css. While it's already reactive thanks to flex's lovely flex-wrap attribute, I'm really not happy with the actual results. Not sure if that's going to wind up being upgrading them to boxes, or centering the text, or spacing them evenly along their row, we'll figure it out as we go.
-
-But by now, you should be able to see the entire vision as I set it out in the wireframe sketches.
 -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
@@ -29,12 +27,15 @@ But by now, you should be able to see the entire vision as I set it out in the w
   <body>
     <div class="center-both">
       <div class="erd">
-        <div class="splash-entity"><h2><a href="about.html">About</a></h2></div>
-        <div class="splash-entity"><h2><a href="hobbies.html">Hobbies</a></h2></div>
-        <div class="splash-entity"><h2><a href="links.html">Links</a></h2></div>
-        <div class="splash-relationship"></div>
-        <div class="splash-relationship"></div>
-        <div class="splash-relationship"></div>
+        <div class="splash-entity about-ent"><h2><a href="about.html">About</a></h2></div>
+        <div class="splash-entity hobbies-ent"><h2><a href="hobbies.html">Hobbies</a></h2></div>
+        <div class="splash-entity links-ent"><h2><a href="links.html">Links</a></h2></div>
+        <div class="splash-relationship about-rel"></div>
+        <div class="splash-relationship hobbies-rel"></div>
+        <div class="splash-relationship links-rel"></div>
+        <div class="splash-symbol about-sym"></div>
+        <div class="splash-symbol hobbies-sym"></div>
+        <div class="splash-symbol links-sym"></div>
         <figure class="splash-portrait">
           <img src="images/portrait.png">
           <figcaption>Roger Ellingson</figcaption>

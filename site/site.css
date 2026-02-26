@@ -23,7 +23,13 @@ header {
 }
 
 nav {
-    display: block;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 8px;
+    justify-content: center;
+
     box-sizing: border-box;
 
     margin: 0;
@@ -35,24 +41,25 @@ nav {
 }
 
 nav a {
-    display: inline-block;
     box-sizing: border-box;
 
     text-decoration: none;
     font-weight: bold;
     font-size: 1.5em;
-    margin-left: 2em;
-    margin-right: 2em;
+    padding: 8px;
+    padding-left: 16px;
 
-    min-width: 15%;
+    min-width: 10em;
 
-    border-bottom: 2px solid rgba(0, 0, 0, 0);
+    border: 3px solid #679;
+
+    /* border-bottom: 2px solid rgba(0, 0, 0, 0); */
 
     color: white;
 }
 
 nav a:hover {
-    border-bottom: 2px solid #fff;
+    border-bottom: 3px solid #fff;
 }
 
 article {
@@ -265,8 +272,9 @@ footer {
 /* Cards breakpoint: because we demand 30px between cards, 600+600+30 = 1230px is when we stop
  * being able to lay cards out next to each other.
  *
- * Right now I'm not doing anything with this information but I may tweak how cards operate in
- * the future for this
+ * So instead, we remove the rounded edges and throw the sides of the card against the edges of the screen.
+ * We still keep the size limits on the figures so that there's still some whitespace to create a restful
+ * environment to read the cards and admire the images.
  */
 @media (900px < width < 1230px) {
     .card {
@@ -285,14 +293,15 @@ footer {
     }
 
     .card figcaption {
-        font-size: 18pt;
+        font-size: 12pt;
     }
 }
 
-/* Mobile Cards breakpoint -
+/* Mobile Cards breakpoint - Below a certain size, we start to approach the aspect ratio of the cards themselves,
+ * and the whitespace on the left and right stops making sense. instead, the cards collapse entirely and the figure stretches to the entire screen width. Unfortunately in a typical mobile setting, this pushes the text off the bottom.
  */
 
-@media (width <= 600px) {
+@media (width <= 900px) {
     .card {
         width: 100%;
         border-radius: 0;
