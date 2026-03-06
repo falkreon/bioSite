@@ -65,7 +65,7 @@ nav a:hover {
 article {
     display: block;
     box-sizing: border-box;
-    max-width: 84rem;
+    max-width: 65rem;
     min-height: 80%;
     margin-top: 2rem;
     margin-left: auto;
