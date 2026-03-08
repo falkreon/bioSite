@@ -143,7 +143,7 @@ article p {
     width: 600px;
     border: 2px solid #777;
     border-radius: 1em 1em;
-    padding: 0;
+    padding: 1em;
     margin-top: 0;
     margin-left: auto;
     margin-right: auto;
@@ -158,12 +158,11 @@ article p {
 .card > h2 {
     margin: 0.25em;
     text-align: center;
-    padding: 0;
 }
 
 .card figure {
-    max-width: 100%;
-    margin: 0;
+    max-width: 500px;
+    margin: auto;
     margin-bottom: 2em;
     padding: 0;
 }
@@ -180,7 +179,7 @@ article p {
 }
 
 .card figcaption {
-    font-size: 0.9rem;
+    font-size: 14pt;
     font-style: italic;
     padding: 0.5rem;
 }
@@ -276,7 +275,7 @@ footer {
  * We still keep the size limits on the figures so that there's still some whitespace to create a restful
  * environment to read the cards and admire the images.
  */
-@media (900px < width < 1230px) {
+@media ( width < 1230px) {
     .card {
         width: 100%;
         display: flex;
@@ -289,32 +288,10 @@ footer {
     .card figure {
         display: inline-block;
         margin: 0;
-        width: 600px;
+        width: 400px;
     }
 
     .card figcaption {
-        font-size: 12pt;
+        font-size: 14pt;
     }
 }
-
-/* Mobile Cards breakpoint - Below a certain size, we start to approach the aspect ratio of the cards themselves,
- * and the whitespace on the left and right stops making sense. instead, the cards collapse entirely and the figure stretches to the entire screen width. Unfortunately in a typical mobile setting, this pushes the text off the bottom.
- */
-
-@media (width <= 900px) {
-    .card {
-        width: 100%;
-        border-radius: 0;
-    }
-
-    .card figure {
-        margin-bottom: 12px;
-    }
-
-    .card figcaption {
-        font-size: 12pt;
-        margin-bottom: 0px;
-    }
-}
-
-
