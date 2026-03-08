@@ -7,9 +7,10 @@ Then, unfortunately, to center the ERD on both axes, we need to use two nested c
 */
 
 html {
-    background-image: url("images/erd_bg2.jpg");
-    background-size: cover;
-    background-position: center;
+    /*background: url("images/erd_bg3.png");*/
+    background: radial-gradient(circle at top, rgba(0, 0, 0, 0) 0%, rgba(21, 38, 61, 0.12) 50%, rgba(21, 38, 61, 0.68) 100%), url("images/erd_bg3.png");
+    /*background-size: cover;
+    background-position: center;*/
 }
 
 body {
